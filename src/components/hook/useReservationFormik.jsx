@@ -4,6 +4,8 @@ import axios from "axios";
 import  useAuth  from "./useAuth.jsx";
 import { useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 export const useReservationFormik = () => {
@@ -38,7 +40,7 @@ export const useReservationFormik = () => {
         console.log("Datos enviados al backend:", reservationData);
 
         const response = await axios.post(
-          `${API_URL}/users/schedule`,
+          `${API_URL}/reservations/schedule`,
           reservationData,
           {
             headers: { "Content-Type": "application/json" },
