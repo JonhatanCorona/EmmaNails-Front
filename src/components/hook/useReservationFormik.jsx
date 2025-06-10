@@ -38,7 +38,7 @@ export const useReservationFormik = () => {
         console.log("Datos enviados al backend:", reservationData);
 
         const response = await axios.post(
-          "http://localhost:3000/reservations/schedule",
+          "https://emmanails-back-production.up.railway.app/reservations/schedule",
           reservationData,
           {
             headers: { "Content-Type": "application/json" },

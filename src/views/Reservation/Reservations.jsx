@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import "./Reservations.css"
 import  useAuth  from '../../components/hook/useAuth';
-
+import dotenv from 'dotenv';
+dotenv.config();
 import axios from 'axios';
 
 
@@ -11,14 +12,14 @@ const Reservations = () => {
   const { user,  handleCancelReservation, reservations, setReservations } = useAuth();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const API_URL = process.env.VITE_API_URL
   useEffect(() => {
     if (!user?.id) return;
 
     const obtenerReservas = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get(`http://localhost:3000/users/${user.id}`);
+        const { data } = await axios.get(`${API_URL}/users/${user.id}`);
         setReservations(data.reservations || []); 
       } catch (err) {
         setError("Hubo un problema al cargar las reservas. Intenta nuevamente.",err);

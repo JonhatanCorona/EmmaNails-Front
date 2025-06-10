@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
     const [reservations, setReservations] = useState([]); 
 
     const register = async (values) =>{
-        return await axios.post("http://localhost:3000/users/register", values, {
+        return await axios.post("https://emmanails-back-production.up.railway.app/users/register", values, {
             headers: { "Content-Type": "application/json" }
     });
     }
@@ -37,14 +37,14 @@ const AuthProvider = ({ children }) => {
         }).then(async (result) => {
         if (result.isConfirmed) {
             try {
-            await axios.put(`http://localhost:3000/reservations/cancel/${reservationId}`, {
+            await axios.put(`https://emmanails-back-production.up.railway.app/reservations/cancel/${reservationId}`, {
             status: "Cancelled",
             });
 
             Swal.fire("Reserva cancelada con éxito", "", "success");
             setMessage("Reserva cancelada con éxito");
             
-            const response = await axios.get(`http://localhost:3000/users/${user.id}`);
+            const response = await axios.get(`https://emmanails-back-production.up.railway.app/users/${user.id}`);
             setReservations(response.data.reservations);
             } catch (error) {
             Swal.fire("Error al cancelar la reserva", error.message, "error");
@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
-            const response = await axios.post("http://localhost:3000/users/login", {
+            const response = await axios.post("https://emmanails-back-production.up.railway.app/users/login", {
                 username,
                 password
             });
