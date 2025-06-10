@@ -1,10 +1,14 @@
-import React, { createContext, useState } from 'react';
+import { createContext, useState } from 'react';
 import axios from 'axios';
 import Swal from "sweetalert2"
 import  canCancelReservation  from "../helpers/cancelReservation"
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 
 const AuthContext = createContext();
+const API_URL = process.env.VITE_API_URL
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -12,7 +16,7 @@ const AuthProvider = ({ children }) => {
     const [reservations, setReservations] = useState([]); 
 
     const register = async (values) =>{
-        return await axios.post("https://emmanails-back-production.up.railway.app/users/register", values, {
+        return await axios.post(`${API_URL}/users/register`, values, {
             headers: { "Content-Type": "application/json" }
     });
     }
@@ -37,14 +41,14 @@ const AuthProvider = ({ children }) => {
         }).then(async (result) => {
         if (result.isConfirmed) {
             try {
-            await axios.put(`https://emmanails-back-production.up.railway.app/reservations/cancel/${reservationId}`, {
+            await axios.put(`${API_URL}/reservations/cancel/${reservationId}`, {
             status: "Cancelled",
             });
 
             Swal.fire("Reserva cancelada con éxito", "", "success");
             setMessage("Reserva cancelada con éxito");
             
-            const response = await axios.get(`https://emmanails-back-production.up.railway.app/users/${user.id}`);
+            const response = await axios.get(`${API_URL}/users/${user.id}`);
             setReservations(response.data.reservations);
             } catch (error) {
             Swal.fire("Error al cancelar la reserva", error.message, "error");
@@ -60,7 +64,7 @@ const AuthProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
-            const response = await axios.post("https://emmanails-back-production.up.railway.app/users/login", {
+            const response = await axios.post(`${API_URL}/users/login`, {
                 username,
                 password
             });

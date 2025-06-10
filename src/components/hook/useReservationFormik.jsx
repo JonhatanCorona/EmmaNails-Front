@@ -4,10 +4,12 @@ import axios from "axios";
 import  useAuth  from "./useAuth.jsx";
 import { useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 export const useReservationFormik = () => {
-
+  const API_URL = process.env.VITE_API_URL
   const { user } = useAuth(); 
   const navigate = useNavigate();
   const memoizedUser = useMemo(() => user, [user]);
@@ -38,7 +40,7 @@ export const useReservationFormik = () => {
         console.log("Datos enviados al backend:", reservationData);
 
         const response = await axios.post(
-          "https://emmanails-back-production.up.railway.app/reservations/schedule",
+          `${API_URL}/users/schedule`,
           reservationData,
           {
             headers: { "Content-Type": "application/json" },
