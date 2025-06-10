@@ -4,8 +4,6 @@ import axios from "axios";
 import  useAuth  from "./useAuth.jsx";
 import { useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import dotenv from 'dotenv';
-dotenv.config();
 
 
 export const useReservationFormik = () => {

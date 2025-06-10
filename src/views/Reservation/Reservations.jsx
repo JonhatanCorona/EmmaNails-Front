@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import "./Reservations.css"
 import  useAuth  from '../../components/hook/useAuth';
-import dotenv from 'dotenv';
-dotenv.config();
 import axios from 'axios';
 
 
@@ -12,7 +10,7 @@ const Reservations = () => {
   const { user,  handleCancelReservation, reservations, setReservations } = useAuth();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const API_URL = process.env.VITE_API_URL
+  const API_URL = import.meta.env.VITE_API_URL
   useEffect(() => {
     if (!user?.id) return;
 

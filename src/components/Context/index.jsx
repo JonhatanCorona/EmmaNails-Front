@@ -2,9 +2,6 @@ import { createContext, useState } from 'react';
 import axios from 'axios';
 import Swal from "sweetalert2"
 import  canCancelReservation  from "../helpers/cancelReservation"
-import dotenv from 'dotenv';
-dotenv.config();
-
 
 
 const AuthContext = createContext();
