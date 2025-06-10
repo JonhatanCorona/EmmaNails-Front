@@ -1,0 +1,14 @@
+.title-service{
+    text-align: center;
+    width: 89%;
+}
+
+.img-service {
+    width: 60%;
+    height: 60rem;
+    margin-left: 10rem;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ddd;
+    border-radius: 20px;
+
+}

@@ -1,0 +1,192 @@
+.contact-action {
+    width: 50%;
+    text-align: center;
+}
+
+.cta-message {
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 10px;
+    color: #2b2727;
+    font-family: 'Dancing Script', cursive;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 14px 30px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: black;
+    background: linear-gradient(135deg, #ff69b4, #ff1493); 
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 10%, rgba(255, 255, 255, 0) 70%);
+    transition: 0.5s ease;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.cta-button:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+}
+
+
+.cta-button:hover {
+    background: linear-gradient(135deg, #ff1493, #ff69b4);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.6);
+}
+
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.cta-button:active {
+    animation: pulse 0.3s ease-in-out;
+}
+
+
+.title-reservations{
+    width: 100%;
+    text-align: center; 
+    box-sizing: border-box;
+    margin-right: 10rem;
+    font-family: 'Dancing Script', cursive;
+    margin-top: 4rem; 
+    font-weight: bold;
+    color: black; 
+
+}
+
+.title-reservation-nota{
+    background-color: #333; 
+    color: #ffcc00; 
+    padding: 10px 15px;
+    border-radius: 8px; 
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid #ffcc00; 
+    max-width: 50%;
+    margin: 15px auto; 
+}
+
+
+.container-reservations {
+    width: 50%; 
+    margin: 20px auto;
+    padding: 10px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* Se aplica el último valor */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ddd;
+    border-radius: 10px; /* Se aplica el último valor */
+    overflow-x: auto;  
+    white-space: nowrap;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+    
+
+
+
+.container-input-reservation {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+}
+
+.container-input-reservation label {
+    font-weight: bold;
+    color: #201d1d;
+    text-align: center;
+}
+
+.container-input-reservation input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.container-input-reservation input:focus {
+    border-color: #ff4081; 
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(255, 64, 129, 0.5);
+    text-align: center;
+}
+
+.reservation-button {
+    display: block !important;
+    width: 80% ;
+    margin: 20px auto ;
+    padding: 12px 25px ;
+    font-size: 1.2rem ;
+    font-weight: bold ;
+    color: white ;
+    background: linear-gradient(45deg, #ff4081, #ff80ab) ;
+    border: none ;
+    border-radius: 50px ;
+    text-align: center ;
+    transition: 0.3s ;
+    cursor: pointer 
+}
+
+.reservation-button:hover {
+    background: linear-gradient(45deg, #ff80ab, #ff4081) ;
+    transform: scale(1.1) ;
+}
+
+
+.container-input-reservation select {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+}
+
+.container-input-reservation select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+.container-input-reservation select {
+    background: url('https://cdn-icons-png.flaticon.com/512/892/892498.png') no-repeat right 10px center;
+    background-size: 15px;
+}
+
+
+.container-input-reservation select:focus {
+    border: 2px solid #ff69b4;
+}
+
