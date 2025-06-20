@@ -1,4 +1,3 @@
-import React from 'react';
 import "./Footer.css"
 import email from "../../assets/email.jfif"
 import instragam from "../../assets/instragam.webp"

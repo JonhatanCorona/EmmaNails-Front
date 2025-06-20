@@ -1,14 +1,40 @@
-.title-service{
-    text-align: center;
-    width: 89%;
+/* 🌐 Contenedor general */
+.services-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.img-service {
-    width: 60%;
-    height: 60rem;
-    margin-left: 10rem;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    border: 2px solid #ddd;
-    border-radius: 20px;
+/* 🎯 Título */
+.title-service {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-family: 'Dancing Script', cursive;
+}
 
+/* 🖼 Imagen */
+.img-service {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+}
+
+/* 📱 Responsive para móviles */
+@media (max-width: 768px) {
+  .title-service {
+    font-size: 2rem;
+  }
+
+  .img-service {
+    width: 100%;
+    height: auto;
+  }
 }

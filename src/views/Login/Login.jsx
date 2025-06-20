@@ -3,6 +3,7 @@ import { useLoginFormik } from '../../components/hook/useLoginFormik.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import "../Login/Login.css"
 import useAuth  from "../../components/hook/useAuth"
+import Footer from "../../components/Footer/Footer";
 
 
 const Login = () => {
@@ -18,7 +19,7 @@ const Login = () => {
   }, [user, navigate]);
 
   return (
-    <div>
+    <div >
       <h1 className="title-login" style={{ paddingTop: "10rem" }}> BIENVENIDO </h1>
       {message && <p style={{ color: "green", textAlign: "center" }}>{message}</p>} 
       <form className="container-login" style={{ marginTop: "5rem" }}onSubmit={formik.handleSubmit}>
@@ -54,6 +55,7 @@ const Login = () => {
         <div style={{ textAlign: "center" }}>No tiene usuario</div>
         <Link to= "/register" className="login-button"> Registrate Aqui </Link>
       </form>
+      <Footer />
     </div>
   );
 };

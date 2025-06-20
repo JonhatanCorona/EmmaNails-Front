@@ -8,6 +8,7 @@ import Login from "./views/Login/Login";
 import Services from "./views/Services/Services";
 import AboutUs from "./views/AboutUs/AboutUs";
 import Dashboard from "./views/Dashboard/Dashboard";
+import { Toaster } from "react-hot-toast";
 
 
 function App() {
@@ -22,14 +23,29 @@ function App() {
   return (
     <div
       style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center bottom",
-        backgroundRepeat: "no-repeat",
-        width: "100%",
-        minHeight: "100vh",
+   display: "flex",
+  flexDirection: "column",
+  minHeight: "100vh",
+  backgroundImage: `url(${backgroundImage})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center bottom",
+  backgroundRepeat: "no-repeat",
+  width: "100%",
       }}
     >
+
+      <Toaster
+  position="bottom-right" 
+  toastOptions={{
+    style: {
+      background: "transparent",
+      color: "#000",
+      border: "1px solid #000",
+      boxShadow: "none",
+    },
+  }}
+/>
+
       {!["/login", "/dashboard"].some((path) => location.pathname.startsWith(path)) && <Navbar />}
 
       <Routes>

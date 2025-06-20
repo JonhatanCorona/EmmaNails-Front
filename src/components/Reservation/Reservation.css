@@ -1,6 +1,11 @@
 .contact-action {
-    width: 50%;
-    text-align: center;
+  margin: 0 auto; 
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .cta-message {
@@ -190,3 +195,78 @@
     border: 2px solid #ff69b4;
 }
 
+/* Ajustes generales para pantallas pequeñas */
+@media (max-width: 768px) {
+  .title-reservations {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-right: 0;
+    padding: 0 1rem;
+  }
+
+  .title-reservation-nota {
+    max-width: 90%;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    margin: 10px auto 20px;
+  }
+
+  .container-reservations {
+    width: 90%;
+    padding: 15px;
+    gap: 2rem;
+    white-space: normal;
+  }
+
+  .container-input-reservation {
+    gap: 3px;
+  }
+
+  .container-input-reservation input,
+  .container-input-reservation select {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  .reservation-button {
+    width: 100% !important;
+    padding: 14px 0;
+    font-size: 1.1rem;
+  }
+}
+
+/* Para pantallas muy pequeñas / móviles */
+@media (max-width: 480px) {
+  .title-reservations {
+    font-size: 1.6rem;
+  }
+
+  .title-reservation-nota {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  .container-reservations {
+    width: 100%;
+    padding: 10px;
+    gap: 1.5rem;
+  }
+
+  .container-input-reservation label {
+    font-size: 0.9rem;
+  }
+
+  .container-input-reservation input,
+  .container-input-reservation select {
+    font-size: 0.9rem;
+    padding: 6px;
+      width: 100%; /* que ocupe todo el ancho disponible */
+  box-sizing: border-box; 
+  }
+
+
+  .reservation-button {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+}

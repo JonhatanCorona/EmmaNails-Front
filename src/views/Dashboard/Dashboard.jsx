@@ -9,7 +9,7 @@ const Dashboard = () => {
   return (
     <>
       <NavbarDashboard />
-      <div>
+      <div className='mb-8'>
       <Routes>
         <Route path="/" element={<Navigate to="myaccount" replace />} />
         <Route path="myaccount" element={<MiCuenta />} />

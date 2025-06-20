@@ -1,103 +1,138 @@
+/* 🔁 RESET GLOBAL */
+* {
+  box-sizing: border-box;
+}
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
+/* 🌟 TÍTULO */
 .container-nosotros {
-    text-align: center;
-    margin-top: 2rem;
-    font-family: 'Dancing Script', cursive;
+  text-align: center;
+  margin-top: 2rem;
+  font-family: 'Dancing Script', cursive;
 }
 
-
-.container-myv{
-    background: transparent; 
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 80%;
-    max-width: 900px;
-    margin: 20px auto;
-    text-align: center;
-    margin-right: 17rem;
+/* 🧱 MISIÓN Y VISIÓN */
+.container-myv {
+  background: transparent; 
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 900px;
+  margin: 20px auto;
+  text-align: center;
 }
+
 .container-valores {
-    background: transparent; 
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 80%;
-    max-width: 900px;
-    margin: 20px auto;
-    text-align: center;
-    margin-right: 20rem;
-    
+  background: transparent; 
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 900px;
+  margin: 20px auto;
+  text-align: center;
 }
 
-
+/* 📌 MISIÓN Y VISIÓN CONTENIDO */
 .mision-container,
 .vision-container {
-    background: transparent;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    margin: 15px 0;
-    width: 90%;
-    max-width: 800px;
-    text-align: center;
-    font-weight: bold;
-    border: 2px solid #ddd;
-
+  background: transparent;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  margin: 15px auto;
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  font-weight: bold;
+  border: 2px solid #ddd;
 }
 
-
-
-/* 🌟 Valores */
+/* 🌟 VALORES */
 .container-valores ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .container-valores li {
-    background: transparent; /* O usa otro color */
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    border: 2px solid #ddd;
-    margin: 10px auto;
-    width: 80%;
-    max-width: 600px;
-    font-weight: bold;
+  background: transparent;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ddd;
+  margin: 10px auto;
+  width: 80%;
+  max-width: 600px;
+  font-weight: bold;
 }
 
-
+/* 📍 CONTACTO */
 .contact-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: transparent; /* O usa otro color */
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 2rem;
-    width: 90%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 2rem;
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 
 .container-ubicacion {
-    text-align: center;
-    font-family: 'Dancing Script', cursive;
-    width: 50%;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  width: 50%;
 }
 
 .container-contacto {
-    text-align: center;
-    font-family: 'Dancing Script', cursive;
-    width: 50%;
-    background: transparent; /* O usa otro color */
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    border: 2px solid #ddd;
-    border-radius: 20px;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  width: 50%;
+  background: transparent;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+  .container-nosotros {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .container-myv,
+  .container-valores {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .container-valores li {
+    width: 95%;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
+  }
+
+  .contact-info,
+  .container-contacto {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
 }

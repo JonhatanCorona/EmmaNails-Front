@@ -80,3 +80,36 @@
     font-weight: bold;
     color: #777;
 }
+
+@media (max-width: 768px) {
+  .container-misReservas {
+    flex-direction: column;
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    align-items: flex-start;
+  }
+
+  .infoReservas {
+    width: 100% !important;
+    margin-bottom: 1rem;
+  }
+
+  .cancel-button {
+    width: 100%;
+    padding: 12px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-misReservas {
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .container-misReservas {
+    width: 100% !important;
+    padding: 10px;
+  }
+}

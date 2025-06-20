@@ -1,68 +1,90 @@
-.title-login{
-    text-align: center;
-    width: 80%;
+.title-login {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  font-family: 'Dancing Script', cursive;
+  padding-top: 3rem;
+  font-size: 2rem;
 }
 
-
 .container-login {
-    width: 50%; 
-    padding: 30px;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    border: 2px solid #ddd;
-    border-radius: 20px;
-    margin-left: 8rem;
+  width: 50%;
+  padding: 30px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  margin: 5rem auto 0 auto; /* centra horizontalmente y espacio arriba */
 }
 
 .container-input-login {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    font-family: 'Dancing Script', cursive;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
 }
 
 .container-input-login label {
-    font-weight: bold;
-    color: #201d1d;
-    text-align: center;
+  font-weight: bold;
+  color: #201d1d;
+  text-align: center;
 }
 
 .container-input-login input {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: 0.3s;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: 0.3s;
+  text-align: center;
 }
 
 .container-input-login input:focus {
-    border-color: #ff4081; 
-    outline: none;
-    box-shadow: 0px 0px 5px rgba(255, 64, 129, 0.5);
-    text-align: center;
+  border-color: #ff4081;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 64, 129, 0.5);
 }
 
 .login-button {
-    display: block !important;
-    width: 80% ;
-    margin: 20px auto ;
-    padding: 12px 25px ;
-    font-size: 1.2rem ;
-    font-weight: bold ;
-    color: white ;
-    background: linear-gradient(45deg, #ff4081, #ff80ab) ;
-    border: none ;
-    border-radius: 50px ;
-    text-align: center ;
-    transition: 0.3s ;
-    cursor: pointer 
+  display: block !important;
+  width: 80%;
+  margin: 20px auto;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(45deg, #ff4081, #ff80ab);
+  border: none;
+  border-radius: 50px;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+  text-decoration: none; /* Para el Link */
 }
 
 .login-button:hover {
-    background: linear-gradient(45deg, #ff80ab, #ff4081) ;
-    transform: scale(1.1) ;
+  background: linear-gradient(45deg, #ff80ab, #ff4081);
+  transform: scale(1.1);
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container-login {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .title-login {
+    font-size: 1.8rem;
+    width: 90%;
+    padding-top: 5rem;
+  }
+
+  .login-button {
+    width: 100%;
+  }
 }

@@ -2,6 +2,7 @@ import { createContext, useState } from 'react';
 import axios from 'axios';
 import Swal from "sweetalert2"
 import  canCancelReservation  from "../helpers/cancelReservation"
+import toast from "react-hot-toast";
 
 
 const AuthContext = createContext();
@@ -18,46 +19,62 @@ const AuthProvider = ({ children }) => {
     });
     }
 
-    const handleCancelReservation = async (reservationId, reservationDate) => {
-        console.log("Fecha de reserva recibida:", reservationDate);
-        
-        if (!canCancelReservation(reservationDate)) {
-        Swal.fire(
-            "No se puede cancelar",
-            "Las reservas no pueden cancelarse el mismo día de la cita.",
-            "warning"
-        );
-        return;
-        }
+const handleCancelReservation = async (reservationId, reservationDate) => {
+  if (!canCancelReservation(reservationDate)) {
+    toast.warning("Las reservas no pueden cancelarse el mismo día de la cita.");
+    return;
+  }
 
-        Swal.fire({
-        title: "¿Estás seguro de cancelar la reserva?",
-        showDenyButton: true,
-        confirmButtonText: "Sí, cancelar",
-        denyButtonText: "No, mantener",
-        }).then(async (result) => {
-        if (result.isConfirmed) {
-            try {
-            await axios.put(`${API_URL}/reservations/cancel/${reservationId}`, {
-            status: "Cancelled",
-            });
+  toast(
+    (t) => (
+      <div className="flex flex-col gap-4">
+        <p>¿Estás seguro de cancelar la reserva?</p>
+        <div className="flex justify-end gap-2">
+          <button
+            className="bg-red-600 text-white px-3 py-1 rounded"
+            onClick={async () => {
+              toast.dismiss(t.id);
+              try {
+                // Cancelar reserva
+                await axios.put(`${API_URL}/reservations/cancel/${reservationId}`, {
+                  status: "Cancelled",
+                });
 
-            Swal.fire("Reserva cancelada con éxito", "", "success");
-            setMessage("Reserva cancelada con éxito");
-            
-            const response = await axios.get(`${API_URL}/users/${user.id}`);
-            setReservations(response.data.reservations);
-            } catch (error) {
-            Swal.fire("Error al cancelar la reserva", error.message, "error");
-            setMessage("Hubo un problema al cancelar la reserva.");
-            }
-        } else if (result.isDenied) {
-            Swal.fire("La reserva no fue cancelada", "", "info");
-        }
-        }).catch((error) => {
-        Swal.fire("Error", error.message, "error");
-        });
-    };
+                // ✅ Volver a cargar reservas
+                const response = await axios.get(`${API_URL}/users/${user.id}`);
+                setReservations(response.data.reservations);
+
+                toast.success("Reserva cancelada con éxito");
+                setMessage("Reserva cancelada con éxito");
+              } catch (error) {
+                toast.error("Error al cancelar la reserva");
+              }
+            }}
+          >
+            Sí, cancelar
+          </button>
+          <button
+            className="px-3 py-1 rounded border"
+            onClick={() => toast.dismiss(t.id)}
+          >
+            No, mantener
+          </button>
+        </div>
+      </div>
+    ),
+    {
+      duration: Infinity,
+      position: "bottom-center",
+      style: {
+        background: "#fff",
+        color: "#000",
+        boxShadow: "0 2px 10px rgba(0,0,0,0.2)",
+        padding: "16px",
+        minWidth: "280px",
+      },
+    }
+  );
+};
 
     const login = async (username, password) => {
         try {
@@ -70,7 +87,7 @@ const AuthProvider = ({ children }) => {
 
             if (data.login) {
                 setUser(data.user);
-                setMessage("Inicio de sesión exitoso");
+               toast.success("Logueado Exitosamente!", {duration: 4000,});
                 return true;
             } else {
                 setMessage("Usuario y contraseña no coinciden");

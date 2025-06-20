@@ -6,12 +6,12 @@ import Footer from "../../components/Footer/Footer"
 
 const Services = () => {
   return (
-    <div>
-    <h1 className='title-service'> Nuestros Servicios</h1>
-    <img className='img-service' src={servicios}/>
-    <ReservationButtom/>
-    <Footer />
-</div>
+     <div className="services-container">
+      <h1 className="title-service">Nuestros Servicios</h1>
+      <img className="img-service" src={servicios} alt="Servicios"/>
+      <ReservationButtom />
+      <Footer />
+    </div>
   )
 }
 

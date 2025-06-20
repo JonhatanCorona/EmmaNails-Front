@@ -4,6 +4,7 @@ import axios from "axios";
 import  useAuth  from "./useAuth.jsx";
 import { useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 
@@ -36,7 +37,6 @@ export const useReservationFormik = () => {
           date: values.date,
           userId: memoizedUser.id,
         };
-        console.log("Datos enviados al backend:", reservationData);
 
         const response = await axios.post(
           `${API_URL}/reservations/schedule`,
@@ -45,7 +45,7 @@ export const useReservationFormik = () => {
             headers: { "Content-Type": "application/json" },
           }
         );
-        alert("Reservacion Exitosa:", response);
+        toast.success("Reservacion Exitosa:");
 
         navigate("/dashboard/reservations");
       } catch (error) {

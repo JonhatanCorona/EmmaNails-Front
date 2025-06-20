@@ -1,7 +1,9 @@
 import { useFormik } from "formik";
 import { validationSchemaRegister } from "../helpers/validationSchemaRegister.js"
 import { useNavigate } from "react-router-dom";
+
 import useAuth from "./useAuth.jsx";
+import toast from "react-hot-toast";
 
 
 export const useRegisterFormik = () => {
@@ -27,7 +29,7 @@ export const useRegisterFormik = () => {
 
       register(values)
 
-        alert("Registro exitoso:");
+      toast.success("Registrado Exitosamente!", {duration: 4000,});
         navigate("/login")
       } catch (error) {
         console.error("Error:", error.message);

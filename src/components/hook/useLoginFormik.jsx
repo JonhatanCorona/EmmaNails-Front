@@ -11,14 +11,16 @@ export const useLoginFormik = () => {
       password: "",
     },
     validationSchema: validationSchemaLogin,
-    onSubmit: async (values, { setSubmitting, setErrors }) => {
-      const success = await login(values.username, values.password);
+   onSubmit: async (values, { setSubmitting, setErrors }) => {
+  console.log("Enviando datos:", values);
+  const trimmedUsername = values.username.trim();
+  const trimmedPassword = values.password.trim();
 
-      if (!success) {
-        setErrors({ password: "Usuario y contraseña no coinciden" });
-      }
-
-      setSubmitting(false);
-    },
+  const success = await login(trimmedUsername, trimmedPassword);
+  if (!success) {
+    setErrors({ password: "Usuario y contraseña no coinciden" });
+  }
+  setSubmitting(false);
+},
   });
 };

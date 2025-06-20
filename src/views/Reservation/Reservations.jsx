@@ -30,7 +30,10 @@ const Reservations = () => {
   }, [user?.id, setReservations]);
 
 
-  if (loading) return <p>Cargando reservas...</p>;
+  if (loading) return <div className="flex items-center justify-center min-h-screen">
+    <p className="text-black text-lg text-center">Cargando Reservas</p>
+  </div>
+;
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
   
 
@@ -66,7 +69,9 @@ const Reservations = () => {
           </div>
         ))
       ) : (
-        <p lassName="no-reservations">No tienes reservas aún.</p>
+       <div className="flex items-center justify-center">
+  <p className="text-black text-lg text-center">No tienes reservas aún.</p>
+</div>
       )}
     </div>
     </>

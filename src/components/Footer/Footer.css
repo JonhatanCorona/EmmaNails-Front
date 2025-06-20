@@ -1,24 +1,38 @@
-.footer-icon{
-    width: 50px; 
-    height: auto;
-    border-radius: 50%; 
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  flex-wrap: wrap; /* Para que se ajusten si no caben */
+}
 
+.footer-icon {
+  width: 40px;
+  height: auto;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .footer-email {
-    text-decoration: none; 
-    color: inherit; 
-    display: flex; 
-    align-items: center; 
-    padding-bottom: 4px;
-    width: 50px; 
-    height: auto;
-    border-radius: 40%; 
-
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  white-space: nowrap;
 }
-  
 
-.footer-content {
-    display: flex;
-    margin-left: 56rem;
+/* Media query opcional para ajustar en pantallas muy pequeñas */
+@media (max-width: 400px) {
+  .footer-email {
+    font-size: 0.9rem;
+    white-space: normal; /* Permite que el correo se divida si es necesario */
+    text-align: center;
+  }
+
+  .footer-content {
+    gap: 1rem;
+  }
 }
